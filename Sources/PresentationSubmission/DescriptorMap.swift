@@ -19,10 +19,20 @@ public struct DescriptorMap: Codable {
   let id: String
   let format: String
   let path: String
+  let path_nested: [String: String]?
 
-  public init(id: String, format: String, path: String) {
+    public init(id: String, format: String, path: String, nestedPath: String?) {
     self.id = id
     self.format = format
     self.path = path
+        
+    if let nestedPathString = nestedPath {
+        self.path_nested = [
+            "format": "jwt_vc_json",
+            "path": nestedPathString
+        ]
+    } else {
+        self.path_nested = nil
+    }
   }
 }
