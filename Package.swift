@@ -18,7 +18,7 @@ let package = Package(
       ),
       .package(
         url: "https://github.com/KittyMac/Sextant.git",
-        exact: "0.4.36"
+        .upToNextMinor(from: "0.4.0")
       ),
       .package(
         url: "https://github.com/birdrides/mockingbird.git",
